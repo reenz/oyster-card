@@ -1,4 +1,5 @@
 # Oystercard
+I am building this project to practice Object Oriented design in JavaScript.
 
 ## User stories
 
