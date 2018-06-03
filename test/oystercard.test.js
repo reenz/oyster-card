@@ -36,4 +36,10 @@ describe("Oystercard", () => {
     oystercard.balance.should.be.equal(10);
   })
 
+  it("should return in journey as true if touched in", () => {
+    oystercard.addBalance(30);
+    oystercard.touchIn();
+    oystercard.isInJourney().should.be.equal(true);
+  })
+
 })

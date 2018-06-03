@@ -4,6 +4,7 @@ class Oystercard {
 
   constructor(){
     this.balance = 0;
+    this.inJourney = false;
   }
 
   addBalance(amt) {
@@ -19,6 +20,14 @@ class Oystercard {
 
   deductBalance(amt) {
     this.balance -= amt;
+  }
+
+  isInJourney() {
+    return this.inJourney;
+  }
+
+  touchIn() {
+    this.inJourney = true;
   }
 
 }
