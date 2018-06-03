@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/reenz/oyster-card.svg?branch=master)](https://travis-ci.org/reenz/oyster-card)
+
 # Oystercard
 I am building this project to practice Object Oriented design in JavaScript.
 
