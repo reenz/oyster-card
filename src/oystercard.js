@@ -1,4 +1,5 @@
 const MAXBALANCE = 50;
+const MINBALANCE = 3;
 
 class Oystercard {
 
@@ -27,6 +28,9 @@ class Oystercard {
   }
 
   touchIn() {
+    if ((this.balance ) <= MINBALANCE){
+      throw Error(`You must have ${MINBALANCE} as minimum balance`);
+    }
     this.inJourney = true;
   }
 
@@ -36,4 +40,4 @@ class Oystercard {
 
 }
 
-module.exports = [Oystercard, MAXBALANCE];
+module.exports = [Oystercard, MAXBALANCE, MINBALANCE];

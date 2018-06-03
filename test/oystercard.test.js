@@ -1,7 +1,7 @@
 const chai = require("chai");
 const should = chai.should();
 
-const [Oystercard, MAXBALANCE] = require("../src/oystercard.js");
+const [Oystercard, MAXBALANCE, MINBALANCE] = require("../src/oystercard.js");
 
 describe("Oystercard", () => {
   
@@ -47,6 +47,11 @@ describe("Oystercard", () => {
     oystercard.touchIn();
     oystercard.touchOut();
     oystercard.isInJourney().should.be.equal(false);
+  })
+
+  it("should raises error if one does not have min bal for a single journey", () => {
+    oystercard.addBalance(1);
+    should.throw(() => oystercard.touchIn(), Error,`You must have ${MINBALANCE} as minimum balance`)
   })
 
 })
