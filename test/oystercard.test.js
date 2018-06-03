@@ -1,7 +1,7 @@
 const chai = require("chai");
 const should = chai.should();
 
-const Oystercard = require("../src/oystercard.js");
+const [Oystercard, MAXBALANCE] = require("../src/oystercard.js");
 
 describe("Oystercard", () => {
   
@@ -18,5 +18,10 @@ describe("Oystercard", () => {
   it("should add balance", () => {
     oystercard.addBalance(10);
     oystercard.balance.should.be.equal(10);
+  })
+
+  it("should raise error if balance reached max limit", () => {
+    oystercard.addBalance(50);
+    should.throw(()=> oystercard.addBalance(20), Error,`You cannot exceed ${MAXBALANCE}, the max limit`);
   })
 })

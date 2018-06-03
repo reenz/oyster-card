@@ -1,3 +1,5 @@
+const MAXBALANCE = 50;
+
 class Oystercard {
 
   constructor(){
@@ -5,9 +7,17 @@ class Oystercard {
   }
 
   addBalance(amt) {
+    this.checkMaxBalance();
     this.balance = this.balance + amt ;
   }
 
+  checkMaxBalance() {
+    if (this.balance === MAXBALANCE){
+      throw Error(`You cannot exceed ${MAXBALANCE}, the max limit`);
+    }
+  }
+
+
 }
 
-module.exports = Oystercard;
+module.exports = [Oystercard, MAXBALANCE];
