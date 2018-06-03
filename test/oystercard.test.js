@@ -21,8 +21,13 @@ describe("Oystercard", () => {
   })
 
   it("should raise error if balance reached max limit", () => {
-    oystercard.addBalance(50);
+    oystercard.addBalance(49);
     should.throw(()=> oystercard.addBalance(20), Error,`You cannot exceed ${MAXBALANCE}, the max limit`);
+  })
+
+  it("should not raise error if it is topped up within the max limit", () => {
+    oystercard.addBalance(20);
+    should.not.throw(()=> oystercard.addBalance(30), Error);
   })
 
   it("should deduct balance", () => {
@@ -30,4 +35,5 @@ describe("Oystercard", () => {
     oystercard.deductBalance(10);
     oystercard.balance.should.be.equal(10);
   })
+
 })

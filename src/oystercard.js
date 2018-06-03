@@ -7,12 +7,12 @@ class Oystercard {
   }
 
   addBalance(amt) {
-    this.checkMaxBalance();
+    this.checkMaxBalance(amt);
     this.balance += amt ;
   }
 
-  checkMaxBalance() {
-    if (this.balance === MAXBALANCE){
+  checkMaxBalance(amt) {
+    if ((this.balance + amt ) > MAXBALANCE){
       throw Error(`You cannot exceed ${MAXBALANCE}, the max limit`);
     }
   }
