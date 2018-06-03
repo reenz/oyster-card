@@ -8,7 +8,7 @@ class Oystercard {
 
   addBalance(amt) {
     this.checkMaxBalance();
-    this.balance = this.balance + amt ;
+    this.balance += amt ;
   }
 
   checkMaxBalance() {
@@ -17,6 +17,9 @@ class Oystercard {
     }
   }
 
+  deductBalance(amt) {
+    this.balance -= amt;
+  }
 
 }
 
