@@ -61,4 +61,10 @@ describe("Oystercard", () => {
     oystercard.getBalance().should.be.equal(17);
   })
 
+  it("should return the station when touched in", () => {
+    oystercard.addBalance(20);
+    oystercard.touchIn("station");
+    oystercard.getEntryStation().should.be.equal("station")
+  })
+
 })

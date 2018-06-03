@@ -6,6 +6,7 @@ class Oystercard {
   constructor(){
     this.balance = 0;
     this.inJourney = false;
+    this.entryStation = null;
   }
 
   getBalance() {
@@ -31,7 +32,8 @@ class Oystercard {
     return this.inJourney;
   }
 
-  touchIn() {
+  touchIn(station) {
+    this.entryStation = station;
     if ((this.balance ) <= MINBALANCE){
       throw Error(`You must have ${MINBALANCE} as minimum balance`);
     }
@@ -43,6 +45,9 @@ class Oystercard {
     this.inJourney = false;
   }
 
+    getEntryStation() {
+      return this.entryStation;
+    }
 }
 
 module.exports = [Oystercard, MAXBALANCE, MINBALANCE];
