@@ -30,6 +30,10 @@ class Oystercard {
     this.inJourney = true;
   }
 
+  touchOut() {
+    this.inJourney = false;
+  }
+
 }
 
 module.exports = [Oystercard, MAXBALANCE];

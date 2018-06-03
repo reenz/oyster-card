@@ -42,4 +42,11 @@ describe("Oystercard", () => {
     oystercard.isInJourney().should.be.equal(true);
   })
 
+  it("should return in journey as false if touched out", () => {
+    oystercard.addBalance(30);
+    oystercard.touchIn();
+    oystercard.touchOut();
+    oystercard.isInJourney().should.be.equal(false);
+  })
+
 })
