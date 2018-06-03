@@ -12,12 +12,12 @@ describe("Oystercard", () => {
   })
   
   it("should have 0 initial balance", () => {
-    oystercard.balance.should.be.equal(0);
+    oystercard.getBalance().should.be.equal(0);
   })
 
   it("should add balance", () => {
     oystercard.addBalance(10);
-    oystercard.balance.should.be.equal(10);
+    oystercard.getBalance().should.be.equal(10);
   })
 
   it("should raise error if balance reached max limit", () => {
@@ -33,7 +33,7 @@ describe("Oystercard", () => {
   it("should deduct balance", () => {
     oystercard.addBalance(20);
     oystercard.deductBalance(10);
-    oystercard.balance.should.be.equal(10);
+    oystercard.getBalance().should.be.equal(10);
   })
 
   it("should return in journey as true if touched in", () => {
@@ -52,6 +52,13 @@ describe("Oystercard", () => {
   it("should raises error if one does not have min bal for a single journey", () => {
     oystercard.addBalance(1);
     should.throw(() => oystercard.touchIn(), Error,`You must have ${MINBALANCE} as minimum balance`)
+  })
+
+  it("deducts balance when touched out", () => {
+    oystercard.addBalance(20);
+    oystercard.touchIn();
+    oystercard.touchOut();
+    oystercard.getBalance().should.be.equal(17);
   })
 
 })

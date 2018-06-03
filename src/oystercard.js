@@ -8,6 +8,10 @@ class Oystercard {
     this.inJourney = false;
   }
 
+  getBalance() {
+    return this.balance;
+  }
+
   addBalance(amt) {
     this.checkMaxBalance(amt);
     this.balance += amt ;
@@ -35,6 +39,7 @@ class Oystercard {
   }
 
   touchOut() {
+    this.deductBalance(MINBALANCE);
     this.inJourney = false;
   }
 
